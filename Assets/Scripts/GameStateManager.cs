@@ -35,7 +35,7 @@ public class GameStateManager : MonoBehaviour
         using (StreamWriter streamWriter = File.CreateText(desiredPath))
         {
             streamWriter.Write(jsonString);
-        }
+        }Debug.Log(desiredPath);
     }
 
 }
