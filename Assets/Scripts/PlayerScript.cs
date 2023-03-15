@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         leftPaddle.Flip(useLeft.IsPressed());
+        //leftPaddle.Flip(useLeft.IsPressed(Mouse.current.IsPressed()))
         rightPaddle.Flip(useRight.IsPressed());
         plunger.Pull(pullPlunger.ReadValue<float>());
         

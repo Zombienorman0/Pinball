@@ -7,7 +7,7 @@ public class PlungerScript : MonoBehaviour
     [SerializeField] SpringJoint2D joint;
     public void Pull(float amount)
     {
-        joint.distance = amount * -12f;
-        joint.attachedRigidbody.AddForce(Vector2.down * amount * 16);
+        joint.distance = amount* -20f;
+        joint.attachedRigidbody.AddForce(Vector2.down * amount * 20);
     }
 }
