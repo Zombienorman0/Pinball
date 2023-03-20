@@ -7,7 +7,7 @@ public class PaddleScript : MonoBehaviour
     [SerializeField] HingeJoint2D joint;
 
     public void Flip(bool isPressed)
-    {
+    {  
         joint.useMotor = isPressed;
     }
 }
