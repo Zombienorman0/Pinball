@@ -9,4 +9,5 @@ public class StartButton : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    
 }

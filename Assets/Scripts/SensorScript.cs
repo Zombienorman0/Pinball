@@ -11,34 +11,27 @@ public class SensorScript : MonoBehaviour
     public TMP_Text text;
     [SerializeField] Transform ballSpawnPoint;
     [SerializeField] int Lives;
+    bool notHit;
 
     public void Start()
     {
         text.text = $"Lives: {Lives}";
+        notHit = false;
     }
     public void Update()
     {
-        if (Lives < 0)
-        {
-            SceneManager.LoadScene("Opening");
-        }else
+        text.text = $"Lives: {Lives}";
         if (Lives < 1)
         {
-            takeDamage(Lives);
-        }else if (Lives < 2)
-        {
-            takeDamage(Lives);
+            SceneManager.LoadScene("Closing");
         }
-        else if(Lives < 3)
-        {
-            takeDamage(Lives);
-        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ball"))
         {
-            
+            takeDamage(Lives);
             StartCoroutine(WaitForRespawn(collision));
         }
         
@@ -52,7 +45,13 @@ public class SensorScript : MonoBehaviour
 
     public void takeDamage(int d)
     {
-        Lives -= d;
-        text.text = Lives.ToString();
+        if (notHit = true)
+        {
+            Lives--;
+            notHit = false;
+            text.text = Lives.ToString();
+            
+        }
+        
     }
 }
